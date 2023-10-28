@@ -1,0 +1,71 @@
+.card {
+  flex-direction: column;
+  justify-content: space-between;
+  width: 254px;
+  height: 254px;
+  background: #3405a3;
+  border-radius: 15px;
+  box-shadow: 1px 5px 60px 0px #100a886b;
+  margin: 2%;
+ }
+ 
+ .card .card-border-top {
+  width: 60%;
+  height: 3%;
+  background: #6b64f3;
+  margin: auto;
+  border-radius: 0px 0px 15px 15px;
+ }
+ 
+ .card span {
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  display: block;
+  padding-top: 10px;
+  font-size: 16px;
+ }
+ 
+ .card .job {
+  font-weight: 400;
+  color: white;
+  display: block;
+  text-align: center;
+  padding-top: 3px;
+  font-size: 12px;
+ }
+ 
+
+ .img{
+  text-align: center;
+ }
+
+ .foto-perros {
+  width: 100px;
+  height: 80px;
+  background: #6b64f3;
+  border-radius: 15px;
+  margin: auto;
+  margin-top: 25px;
+  object-fit:cover;
+ }
+
+ .contenedor-boton{
+  align-items: end;
+ }
+ 
+ .boton-detail{
+  padding: 8px 25px;
+  display: block;
+  margin: auto;
+  border-radius: 8px;
+  border: none;
+  margin-top: 30px;
+  background: #6b64f3;
+  color: white;
+  font-weight: 600;
+ }
+ 
+ .card button:hover {
+  background: #534bf3;
+ }

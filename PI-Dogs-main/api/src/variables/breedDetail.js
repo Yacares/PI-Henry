@@ -8,6 +8,7 @@ function breedDetail(raza) {
         height: raza.height,
         weight: raza.weight,
         lifespan: raza.life_span,
+        temperament: raza.temperament,
 
     };
 

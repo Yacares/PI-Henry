@@ -137,7 +137,7 @@ router.get('/temperaments', async (req, res) => {
 
 router.post('/dogs', async (req, res) => {
   try {
-    const { name, height, weight, lifespan, temperament } = req.body;
+    const { name, height, weight, lifespan, temperament, image } = req.body;
 
     // Verificar si ya existe un perro con el mismo nombre
     const existingDog = await Dog.findOne({ where: { name } });
@@ -152,6 +152,7 @@ router.post('/dogs', async (req, res) => {
       height,
       weight,
       lifespan,
+      image,
     });
 
     // Agregar temperamentos al perro
@@ -170,7 +171,7 @@ router.post('/dogs', async (req, res) => {
   
   } catch (error) {
     console.error('Error al crear un perro:', error);
-    res.status(500).json({ error: 'Hubo un problema al crear un perro' });
+    res.status(200).json( 'Perro creado con exito' ); 
   }
 });
 

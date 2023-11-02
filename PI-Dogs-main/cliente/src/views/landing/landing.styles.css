@@ -1,57 +1,84 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    height: 100vh;
-    overflow: hidden;
+* {
+  margin: 0;
+  
 }
 
-.landing-page {
-    position: relative;
-    height: 100%;
+
+.landing-page-container{
+  position: fixed;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/48/Silly_Dog_%282277051513%29.jpg");
+  background-position: center;
+  background-size:cover;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
 }
 
-.foto-perro {
-    width: 50%;
-    height: 50%;
-    object-fit: fill; /* Ajusta la imagen al tamaño del contenedor manteniendo la relación de aspecto */
+
+
+.landing-page-container-title{
+  width: 50%;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  background-color: rgba(0, 0, 0, 0.73);
+  border: 3px solid #f1f1f1;
+  font-weight: bold;
+  padding: 60px;
+  text-align: center;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  justify-content: space-between;
 }
 
-.button {
-    position: relative;
-    overflow: hidden;
-    height: 3rem;
-    padding: 0 2rem;
-    border-radius: 1.5rem;
-    background: #3d3a4e;
-    background-size: 400%;
-    color: #fff;
-    border: none;
+.titulo-landing{
+  color: rgb(255, 255, 255);
+  font-family: monospace;
+  font-size: 1200%;
+  font-family: monospace;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+
+.landing-page-container-boton{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
+.boton-ingreso {
+  background-color: #fed400;
+  font-family: monospace;
+  height: 80px;
+  width: 200px;
+  border-radius: 10%;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
   }
-  
-  .button:hover::before {
-    transform: scaleX(1);
-  }
-  
-  .button-content {
-    position: relative;
-    z-index: 1;
-  }
-  
-  .button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: scaleX(0);
-    transform-origin: 0 50%;
-    width: 100%;
-    height: inherit;
-    border-radius: inherit;
-    background: linear-gradient(
-      82.3deg,
-      rgba(150, 93, 233, 1) 10.8%,
-      rgba(99, 88, 238, 1) 94.3%
-    );
-    transition: all 0.475s;
-  }
+
+  .boton-ingreso:hover{
+  background-color: #ffdc30;
+}
+
+.button-container{
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+}

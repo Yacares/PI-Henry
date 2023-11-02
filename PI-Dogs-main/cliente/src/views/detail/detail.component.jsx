@@ -2,7 +2,8 @@ import './detail.styles.css';
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchDogById } from "../../redux/actions/action"; // Asegúrate de que la acción esté importada correctamente
+import { fetchDogById } from "../../redux/actions/action";
+import { Link } from 'react-router-dom';
 
 const Detail = () => {
   const { id } = useParams(); // Accedemos al ID de la URL
@@ -30,17 +31,25 @@ const Detail = () => {
     );
   } else {
     return (
-      <div>
-        <h2> Name: {dogDetail.name}</h2>
-        <p>ID:{dogDetail.id}</p>
-        <p><img className ="foto-perro" src={dogDetail.image} alt="foto" /></p>
-        <p>Height Metric: {dogDetail.height.metric}</p>
-        <p>Height Imperial:{dogDetail.height.imperial}</p>
-        <p>Weight Metric:{dogDetail.weight.metric}</p>
-        <p>Weight Imperial:{dogDetail.weight.imperial}</p>
-        <p>Temperaments: {dogDetail.temperament}</p>
-        <p>Life Span:{dogDetail.lifespan}</p>
+      <div className='container-general-detail'>
         
+        <div className='arrow-container' ><Link  to={`/home`} ><img className='flecha-back' src="https://www.svgrepo.com/show/500894/home.svg" alt="back" /></Link></div>
+        
+      <div className='container-card-detail'>
+       <img className ="foto-perro-detail" src={dogDetail.image} alt="foto" />
+        <div className='container-info-detail'>
+        <h2> {dogDetail.name}</h2>
+        <li className='lista-datos'>
+        <p>ID: {dogDetail.id}</p>
+        <p>Height Metric: {dogDetail.height.metric} cm</p>
+        <p>Height Imperial: {dogDetail.height.imperial} in</p>
+        <p>Weight Metric: {dogDetail.weight.metric} kg</p>
+        <p>Weight Imperial: {dogDetail.weight.imperial} lb</p>
+        <p>Life Span: {dogDetail.lifespan}</p>
+        </li>
+        <h3>Temperaments: <br />{dogDetail.temperament}</h3>
+        </div>
+      </div>
       </div>
     );
   }

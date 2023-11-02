@@ -6,42 +6,36 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_SORT_BY':
+    case 'GET_USERS':
       return {
         ...state,
-        sortBy: action.payload,
+        allUsers: action.payload,
       };
-      
-    case 'SET_FILTERS':
+    case 'GET_TEMPERAMENTS':
       return {
         ...state,
-        filters: action.payload,
+        allTemperaments: action.payload,
       };
-      case 'GET_USERS':
-        return {
-          ...state,
-          allUsers: action.payload, 
-        };
-        case 'GET_TEMPERAMENTS':
-          return {
-            ...state,
-            allTemperaments: action.payload, 
-          };
-        case 'CLEAR_ALL_USERS':
-          return {
-            ...state,
-            allUsers: [], // Borra la lista de usuarios
-          };
-              case "NAME_SEARCH":
-                return {
-                  ...state,
-                  nameSearchResults: action.payload,
-                };
-          case "DOG_BY_ID":
-            return {
-              ...state,
-              dogDetail: action.payload,
-            };
+    case 'CLEAR_ALL_USERS':
+      return {
+        ...state,
+        allUsers: [], // Borra la lista de usuarios
+      };
+    case "CREATE_DOGS":
+      return {
+        ...state,
+        message: action.payload,
+      };
+    case "NAME_SEARCH":
+      return {
+        ...state,
+        nameSearchResults: action.payload,
+      };
+    case "DOG_BY_ID":
+      return {
+        ...state,
+        dogDetail: action.payload,
+      };
     default:
       return state;
   }

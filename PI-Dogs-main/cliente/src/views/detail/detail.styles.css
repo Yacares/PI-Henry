@@ -1,4 +1,73 @@
+.container-general-detail{
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #fed400;
+
+}
+
+.container-card-detail{
+    display: flex;
+    background-color:rgb(41, 41, 41); ;
+    width: 900px;
+    height: 400px;
+    border-radius: 50px;
+    box-shadow: 0 0 0 5px #ffffff80;
+}
+
+.foto-perro-detail{
+
+    display: block;
+    float: left;
+    align-items: center;
+    object-fit: cover;
+    overflow: hidden;
+    max-width: 450px;
+    height: 400px;
+    border-radius: 50px 0 0 50px;
+}
+
 .foto-perro{
     width: 200px;
     height: auto;
 }
+
+.container-info-detail{
+    display: flex;
+    flex-wrap: wrap;
+    position: initial;
+    flex-direction: column;
+    padding-left: 50px;
+    justify-content: space-evenly;
+    font-family: monospace;
+    color: white;
+}
+
+.lista-datos{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-decoration: none;
+}
+
+.flecha-back{
+   
+    justify-content: center;
+    overflow: visible;
+    width: 50px;
+    margin-top: 50px;
+}
+
+.flecha-back:hover{
+    background-color:  #dcb702;
+    border-radius: 100%;
+    transform: scale(1.3);
+}
+

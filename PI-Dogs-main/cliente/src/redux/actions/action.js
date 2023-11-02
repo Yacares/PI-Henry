@@ -1,24 +1,34 @@
 import axios from 'axios';
 
-export function getUsers () {
- return async function (dispatch){
-  const response = await axios('http://localhost:3001/dogs')
-  return dispatch({
-    type: "GET_USERS",
-    payload: response.data,
-  });
- };
+export function getUsers() {
+  return async function (dispatch) {
+    const response = await axios('http://localhost:3001/dogs')
+    return dispatch({
+      type: "GET_USERS",
+      payload: response.data,
+    });
+  };
 }
 
-export function getTemperaments () {
-  return async function (dispatch){
-   const response = await axios('http://localhost:3001/temperaments')
-   return dispatch({
-     type: "GET_TEMPERAMENTS",
-     payload: response.data,
-   });
+export function getTemperaments() {
+  return async function (dispatch) {
+    const response = await axios('http://localhost:3001/temperaments')
+    return dispatch({
+      type: "GET_TEMPERAMENTS",
+      payload: response.data,
+    });
   };
- }
+}
+
+export const createDogs = (form) => {
+  return async (dispatch) => {
+    const { data } = await axios.post('http://localhost:3001/dogs', form);
+    dispatch({
+      type: "CREATE_DOGS",
+      payload: data.message,
+    });
+  };
+};
 
 export const clearAllUsers = () => {
   return {
@@ -52,16 +62,4 @@ export const fetchDogById = (id) => {
   };
 };
 
-export const setSortBy = (sortOption) => {
-    return {
-      type: 'SET_SORT_BY',
-      payload: sortOption, // El criterio de ordenamiento (nombre o peso)
-    };
-  };
 
-  export const setFilters = (filters) => {
-    return {
-      type: 'SET_FILTERS',
-      payload: filters, // Los filtros seleccionados
-    };
-  };

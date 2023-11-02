@@ -34,16 +34,9 @@ function Cards({ allUsers}) {
           <Card user={user} />
         ))}
       </div>
-      <div>
-        <button onClick={prevPage} disabled={currentPage === 1}>
-          Anterior
-        </button>
-        <button
-          onClick={nextPage}
-          disabled={indexOfLastUser >= allUsers.length}
-        >
-          Siguiente
-        </button>
+      <div className='container-botones-prev-sig'>
+        <button className="botones-prev-sig" onClick={prevPage} disabled={currentPage === 1}> ← </button>
+        <button className="botones-prev-sig" onClick={nextPage} disabled={indexOfLastUser >= allUsers.length}> → </button>
       </div>
     </div>
   );

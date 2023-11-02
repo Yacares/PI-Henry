@@ -1,5 +1,42 @@
 .cards-list{
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    justify-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    column-gap: 100px;
+    row-gap: 50px;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    
 }
+
+.container-botones-prev-sig{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.botones-prev-sig{
+         display: flex;
+        background-color: #fed400;
+        font-family: monospace;
+        border-radius: 10%;
+        height: 40px;
+        border: none;
+        color: black;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        text-align: center;
+        align-items: center;
+        text-decoration: none;
+        font-size: 30px;
+        cursor: pointer;
+}
+
+
+.botones-prev-sig:hover{
+    background-color: #ffdc30;
+  }

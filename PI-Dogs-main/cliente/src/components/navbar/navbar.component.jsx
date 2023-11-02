@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './navbar.styles.css';
+import { Link } from 'react-router-dom';
 import { getTemperaments } from '../../redux/actions/action';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -17,9 +18,6 @@ function Navbar({ allUsers, setAllUsers }) {
   useEffect(() => {
     dispatch(getTemperaments());
   }, [dispatch]);
-
-  // Ordena los temperamentos alfabéticamente
-  const sortedTemperaments = [...temperaments].sort((a, b) => a.name.localeCompare(b.name));
 
   const sortUsersByName = (order) => {
     const sortedUsers = [...originalUsers];
@@ -98,40 +96,52 @@ function Navbar({ allUsers, setAllUsers }) {
     }
   };
 
-  return (
-    <div>
-      <h1>Navbar</h1>
-      <button onClick={() => sortUsersByName(nameSortOrder === 'asc' ? 'desc' : 'asc')}>
-        Ordenar Nombre {nameSortOrder === 'asc' ? 'Ascendente' : 'Descendente'}
-      </button>
-      <button onClick={() => sortUsersByWeight(weightSortOrder === 'asc' ? 'desc' : 'asc')}>
-        Ordenar Peso {weightSortOrder === 'asc' ? 'Ascendente' : 'Descendente'}
-      </button>
-      <input
-        type="text"
-        placeholder="Buscar por nombre..."
-        value={searchValue}
-        onChange={(e) => setSearchValue(e.target.value)}
-      />
-      <button onClick={handleSearch}>Buscar</button>
-      <button onClick={handleCloseSearch} className="close-button">
-        X
-      </button>
-      <select
-        name="filterByTemperam"
-        id="filterByTemperam"
-        onChange={(e) => setSelectedTemperament(e.target.value)}
-        value={selectedTemperament}
-      >
-        <option value="all">Todos</option>
-        {sortedTemperaments.map((temperament, index) => (
-          <option key={index} value={temperament.name}>
-            {temperament.name}
-          </option>
-        ))}
-      </select>
-    </div>
-  );
-}
+  // Verifica si temperaments es iterable antes de usarlo
+  const sortedTemperaments = Array.isArray(temperaments) && temperaments.length > 0
+    ? temperaments.sort((a, b) => a.name.localeCompare(b.name))
+    : [];
 
-export default Navbar;
+    return (
+      <div className='container-botones-navbar'>
+        <div className='container-box'></div>
+
+        <button className ="botones-navbar" onClick={() => sortUsersByName(nameSortOrder === 'asc' ? 'desc' : 'asc')}>
+          Ordenar Nombre {nameSortOrder === 'asc' ? 'Ascendente' : 'Descendente'}
+        </button>
+
+        <button className ="botones-navbar" onClick={() => sortUsersByWeight(weightSortOrder === 'asc' ? 'desc' : 'asc')}>
+          Ordenar Peso {weightSortOrder === 'asc' ? 'Ascendente' : 'Descendente'}
+        </button>
+        
+        <div className='container-searchbar'>
+        <input
+          type="text"
+          placeholder="Buscar por nombre..."
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
+        <button className ="botones-searchbar" onClick={handleSearch}>🔍</button>
+        </div>
+        <button className ="botones-navbar" onClick={handleCloseSearch}>Restablecer</button>
+        <select className='select-boton'
+          name="filterByTemperam"
+          id="filterByTemperam"
+          onChange={(e) => setSelectedTemperament(e.target.value)}
+          value={selectedTemperament}
+        >
+          <option value="all">All Temperaments</option>
+          {sortedTemperaments.map((temperament, index) => (
+            <option key={index} value={temperament.name}>
+              {temperament.name}
+            </option>
+          ))}
+        </select>
+       
+        <Link to="/create" state={{ temperaments: sortedTemperaments }}> <button className="botones-navbar">Create</button></Link>
+        
+        <div className="search-message">{searchResultsMessage}</div> {/* Muestra el mensaje de búsqueda */}
+      </div>
+    );
+  }
+  
+  export default Navbar;
